@@ -1,10 +1,10 @@
-name: Ejecutar script IDEAM cada hora
+name: Ejecutar script cada lunes
 
 on:
   schedule:
-    - cron: '0 3 * * 1'
+    - cron: '0 3 * * 1'  # Cada lunes a las 3 AM UTC
 
-  workflow_dispatch:  
+  workflow_dispatch:  # Permite ejecución manual
 
 jobs:
   run-script:
@@ -24,7 +24,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Ejecutar script
-      run: 
-      python sisaire_datos.py
-      python ideam_datos.py
+    - name: Ejecutar scripts
+      run: |
+        python sisaire_datos.py
+        python ideam_datos.py
