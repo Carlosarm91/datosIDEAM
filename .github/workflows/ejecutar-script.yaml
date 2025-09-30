@@ -2,7 +2,7 @@ name: Ejecutar script IDEAM cada hora
 
 on:
   schedule:
-    - cron: '0 5 * * *'  
+    - cron: '0 * * * *'  
   workflow_dispatch:  
 
 jobs:
@@ -24,4 +24,6 @@ jobs:
         pip install -r requirements.txt
 
     - name: Ejecutar script
-      run: python ideam_datos.py
+      run: 
+      python sisaire_datos.py
+      python ideam_datos.py
